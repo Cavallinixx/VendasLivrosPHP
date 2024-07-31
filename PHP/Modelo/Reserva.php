@@ -25,10 +25,10 @@
 
         public function imprimir():string 
         {
-            return "<br>Qual o Produto que irá querer fazer a Reserva? ".$this->produto.
-                    "<br>Digite o seu e-mail para notificação após ter no estoque: ".$this->email.
+            return "<br>Qual o livro? ".$this->produto.
+                    "<br>E-mail para ser notificado: ".$this->email.
                     "<br>Qual a quantidade que deseja? ".$this->quantidade.
-                    "<br>Qual a data que está realizando a reserva? ".$this->dataReserva;
+                    "<br>Digite a data: ".$this->dataReserva;
         }
     }//fim da classe
 ?>

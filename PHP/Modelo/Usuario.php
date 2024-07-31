@@ -19,8 +19,17 @@
             $this->dataNasc =$dataNasc;
             $this->login = $login;
             $this->senha = $senha;
-
         }//fim do construtor
+
+        public function loginValidar(string $loginDigitado,string $senhaDigitada){
+            if ($this->login == $loginDigitado && $this->senha == $senhaDigitada){
+                echo "Sucesso no Login!";    
+            }else
+            {
+                echo "Erro no Login!";
+            }//if/else
+            
+        }//fim do metodo validar
 
         public function __get(string $nome){
             return $this->nome;
@@ -40,8 +49,7 @@
                     "<br>Senha: ".$this->senha;
                     
         }//fim do metodo imprimir
-        
+
+    
     }//fim da classe
-
-
 ?>

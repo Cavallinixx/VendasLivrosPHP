@@ -8,11 +8,16 @@
 
     $usuario1 = new Usuario('Vitor','Rua Palestra Italia','11988686684','07/08/2006','vitor','sla');
     $usuario2 = new Usuario('Carlos','Rua Italia','119887444','18/02/1982','carlos','123');
+
     
 
     echo $usuario1->imprimir();
     echo "<br>";
+    echo $usuario1->loginValidar('vitor','sla');
+    echo "<br>";
     echo $usuario2->imprimir();
+    echo "<br>";
+    echo $usuario2->loginValidar('bah','555');
     echo "<br><br>";
 
     $livro1 = new Livro('Cabeça Fria, Coração Quente','2022','Abel Ferreira','60,00','Português','10');
