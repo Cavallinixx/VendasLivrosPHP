@@ -8,7 +8,7 @@
 
     $usuario1 = new Usuario('Vitor','Rua Palestra Italia','11988686684','07/08/2006','vitor','sla');
     $usuario2 = new Usuario('Carlos','Rua Italia','119887444','18/02/1982','carlos','123');
-
+    
     
 
     echo $usuario1->imprimir();
@@ -25,7 +25,11 @@
 
     echo $livro1->imprimir();
     echo"<br>";
+    echo $livro1->estoqueLivros('3');
+    echo"<br>";
     echo $livro2->imprimir();
+    echo"<br>";
+    echo $livro2->estoqueLivros('4');
     echo"<br>";
 
     $Compra1 = new Compra('414646848686846','Fred','02/27','544');

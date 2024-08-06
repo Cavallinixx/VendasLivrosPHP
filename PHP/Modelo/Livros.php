@@ -21,6 +21,16 @@
 
         }//fim do construtor
 
+        public function estoqueLivros(int $numeroLivros){
+            $resultado = $this->estoque - $numeroLivros;
+            if($numeroLivros <= $this->estoque){
+                echo "<br<br><br> A quantidade de livros solicitada é: ".$numeroLivros."."."  E a quantidade que ainda restam no estoque é: ".$resultado;
+            }else{
+                echo "<br><br> A quantidade desejada não está disponivel em nosso estoque.";
+            }
+            
+        }
+
         public function __get(string $nome){
             return $this->nome;
         }
