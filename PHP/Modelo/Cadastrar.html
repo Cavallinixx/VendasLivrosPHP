@@ -50,37 +50,41 @@
               </div>
             </div>
           </nav>
-    
-          
-    
-         
 
-            <div class="p-3 mb-2 bg-black text-white">
-                <h2>Seja Bem-Vindo, ADM!!</h2>
-                <br><br>
+            <div class="p-3 mb-2 text-white">
+                <br><br><br><br>
                 <form class="form" action="/cadastrarUsuario" method="POST">
-                    <p class="title">CRUD </p>
-                    <p class="submit">Escolha a opção desejada: </p>
-                    <div class="btn">
-                        <a href="\listar" class="button2">Consultar</a>
+                    <p class="title">Cadastro </p>
+                    <p class="message"></p>
+                        <div class="flex">
+                        <label>
+                            <input class="input" type="text" name="usuario" placeholder="" required="">
+                            <span>Usuário:</span>
+                        </label>
+        
+                        <label>
+                            <input class="input" type="text" name="senha" placeholder="" required="">
+                            <span>Senha:</span>
+                        </label>
                     </div>
         
-                    <div class="btn">
-                        <a href="\listarIndividual" class="button2">Consultar Individual</a>
-                    </div>
+                    <label>
+                        <input class="input" type="number" name="telefone" placeholder="" required="">
+                        <span>Telefone:</span>
+                    </label>
         
-                   <div class="btn">
-                         <a href="\atualizar" class="button2">Atualizar</a>
-                    </div>
-                    <div class="btn">
-                          <a href="\excluir" class="button3">Excluir</a>
-                    </div>
-        
-                    <p class="signin">Já tem uma conta ? <a href="/login">Entrar</a> </p>
+                    <label>
+                        <input class="input" type="number" name="idade" placeholder="" required="">
+                        <span>Idade:</span>
+                    </label>
+                    <label>
+                        <input class="input" type="number" name="cep" placeholder="" required="">
+                        <span>CEP:</span>
+                    </label>
+                    <button class="submit">Criar</button>
+                    <p class="signin">Já tem uma conta ? <a href="../Modelo/login.html">Entrar</a> </p>
                 </form>
                 <br><br><br><br>
-        
             </div>
-          
     </body>
 </html>
