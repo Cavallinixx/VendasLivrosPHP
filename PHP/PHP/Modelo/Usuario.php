@@ -1,24 +1,24 @@
 <?php
     namespace PHP\Modelo;
-    require_once('Conexao.php');
-    use PHP\Modelo\DAO\Conexao;
+
     //
     class Usuario{
         //Variaveis
         protected string $nome;
-        protected string $usuario;
-        protected string $senha;
+        protected string $endereco;
         protected string $telefone;
-        protected string $cpf;
-
+        protected string $dataNasc;
+        protected string $login;
+        protected string $senha;
 
         //Metodo Construtor
-        public function __construct(string $nome, string $nome,string $usuario, string $senha, string $telefone, string $cpf){
+        public function __construct(string $nome, string $endereco,string $telefone, string $dataNasc, string $login, string $senha){
             $this->nome =$nome;
-            $this->usuario = $usuario;
-            $this->senha = $senha;
+            $this->endereco = $endereco;
             $this->telefone = $telefone;
-            $this->cpf = $cpf;
+            $this->dataNasc =$dataNasc;
+            $this->login = $login;
+            $this->senha = $senha;
         }//fim do construtor
 
         public function loginValidar(string $loginDigitado,string $senhaDigitada){
@@ -42,11 +42,11 @@
         public function imprimir():string
         {
             return "<br>Nome: ".$this->nome.
-                    "<br>Usuário: ".$this->usuario.
-                    "<br>Senha: ".$this->senha.
+                    "<br>Endereço: ".$this->endereco.
                     "<br>Telefone: ".$this->telefone.
-                    "<br>CPF: ".$this->cpf;
-                    
+                    "<br>Data de Nascimento: ".$this->dataNasc.
+                    "<br>Login: ".$this->login.
+                    "<br>Senha: ".$this->senha;
                     
         }//fim do metodo imprimir
 

@@ -6,19 +6,6 @@
     require_once('Compra.php');
     require_once('Reserva.php');
 
-    use PHP\Modelo\DAO\Conexao;//Direcionar o arquivo
-    use PHP\Modelo\DAO\Inserir;
-    use PHP\Modelo\DAO\Consultar;
-    use PHP\Modelo\DAO\Atualizar;
-    use PHP\Modelo\DAO\Excluir;
-
-    $conexao = new Conexao();
-    $inserir = new Inserir();
-    $consultar = new Consultar();
-    $atualizar = new Atualizar();
-    $excluir = new Excluir();
-    /*
-
     $usuario1 = new Usuario('Vitor','Rua Palestra Italia','11988686684','07/08/2006','vitor','sla');
     $usuario2 = new Usuario('Carlos','Rua Italia','119887444','18/02/1982','carlos','123');
     
@@ -59,5 +46,5 @@
     echo $Reserva1->imprimir();
     echo "<br>";
     echo $Reserva2->imprimir();
-*/
+
 ?>

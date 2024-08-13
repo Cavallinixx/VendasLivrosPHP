@@ -12,9 +12,10 @@
 
 </head>
     <body class="" style="background-image: url(../Modelo/Imagens/fundo\ verde.jpg);">
+      
         <nav class="navbar navbar-expand-lg" style="background-color:rgba(255, 255, 255, 0.87);">
             <div class="container-fluid">
-              <a class="navbar-brand" style="color: rgb(0, 0, 0);"  href="#">AlviVerde </a>
+              <a class="navbar-brand" style="color: rgb(0, 0, 0);"  href="../Modelo/index.html">AlviVerde </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -25,7 +26,7 @@
                     <a class="nav-link active" aria-current="page"  style="color: rgb(0, 0, 0);" href="../Modelo/index.html">Pagina Inicial</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link"style="color: rgb(0, 0, 0);;" href="../Modelo/Produtos.html">Produtos</a>
+                    <a class="nav-link"style="color: rgb(0, 0, 0);;" href="">Quem somos?</a>
                   </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" style="color: rgb(0, 0, 0);"aria-expanded="false">
@@ -43,58 +44,62 @@
                 <form class="d-flex" role="search">
                   <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
                   <button class="btn btn-outline-success" type="submit">Enviar</button>
-                  <a href="../Modelo/Login.php" class="btn btn-outline-success" role="button">Login</a>
+                  <a href="../Modelo/login.html" class="btn btn-outline-success" role="button">Login</a>
                 </form>
     
                 
               </div>
             </div>
           </nav>
-    
-          
-    
-          <h2 style="color:rgb(0, 0, 0); background-color:rgba(255, 255, 255, 0.87);" class="">Produtos: </h2>
-          <br><br>
 
-          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <div class="p-3 mb-2 text-white">
+                <br><br><br><br>
+                <form class="form" action="/cadastrarUsuario" method="POST">
+                    <p class="title">Cadastro </p>
+                    <p class="message"></p>
+                    <label>
+                      <input class="input" type="text" name="nome" placeholder="" required="">
+                      <span>Nome:</span>
+                  </label>
+                        <div class="flex">
+                          
+                        <label>
+                            <input class="input" type="text" name="usuario" placeholder="" required="">
+                            <span>Usuário:</span>
+                        </label>
+        
+                        <label>
+                            <input class="input" type="text" name="senha" placeholder="" required="">
+                            <span>Senha:</span>
+                        </label>
+                    </div>
+        
+                    <label>
+                        <input class="input" type="number" name="telefone" placeholder="" required="">
+                        <span>Telefone:</span>
+                    </label>
+        
+                    <label>
+                        <input class="input" type="number" name="cpf" placeholder="" required="">
+                        <span>CPF:</span>
+                    </label>
+
+                    <button class="submit">Criar
+                      <?php
+                        $nome = $_POST['nome'];
+                        $usuario = $_POST['usuario'];
+                        $senha = $_POST['senha'];
+                        $telefone= $_POST['telefone'];
+                        $cpf = $_POST['cpf'];
+                        
+                        cadastrarCliente($nome,$usuario,$senha,$telefone,$cpf);
+                        
+                      ?>
+
+                    </button>
+                    <p class="signin">Já tem uma conta? <a href="../Modelo/Login.php">Entrar</a> </p>
+                </form>
+                <br><br><br><br>
             </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="../Modelo/Imagens/abelLivro.jpg"  class="rounded mx-auto d-block " width="20%" alt="abel">
-                
-                <div class="carousel-caption d-none d-md-block">
-                  
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="../Modelo/Imagens/elonmusk.jpg" class="rounded mx-auto d-block " width="20%" alt="elonMusk">
-                <div class="carousel-caption d-none d-md-block">
-                
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="../Modelo/Imagens/lebron.jpg" class="rounded mx-auto d-block " width="20%" alt="lebron">
-                <div class="carousel-caption d-none d-md-block">
-                  
-                </div>
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-          
-          
-          
     </body>
 </html>
