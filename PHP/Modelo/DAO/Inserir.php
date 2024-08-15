@@ -1,53 +1,55 @@
 <?php
-    namespace PHP\Modelo\DAO;
+namespace PHP\Modelo\DAO;
 
-    require_once('Conexao.php');
-    
+require_once('Conexao.php');
 
-    use PHP\Modelo\DAO\Conexao;
+use PHP\Modelo\DAO\Conexao;
 
-    class Inserir{
-        public Conexao $conexao;
-        public string $tabela;
-        public string $nome;
-        public string $usuario;
-        public string $senha;
-        public string $telefone;
-        public string $cpf;
+class Inserir {
+    private Conexao $conexao;
 
-     
-        function cadastrarCliente(
-            Conexao $conexao,
-            string $nome,
-            string $usuario,
-            string $senha,
-            string $telefone,
-            string $cpf
-            
-        )
-        {
-            try{
-                $conn = $conexao->conectar();//Abrir a conexão com o banco
-                $sql  = "Insert into cliente 
-                (nome, usuario, senha, telefone, cpf) 
-                values ('$nome','$usuario','$senha',
-                '$telefone','$cpf')";
-                $result = mysqli_query($conn, $sql);
+    public function __construct(Conexao $conexao) {
+        $this->conexao = $conexao;
+    }
 
-                //Fechar a conexão
-                mysqli_close($conn);
+    public function cadastrarCliente(
+        string $nome,
+        string $usuario,
+        string $senha,
+        string $telefone,
+        string $cpf
+    ): string {
+        try {
+            $conn = $this->conexao->conectar(); // Abrir a conexão com o banco
 
-                if($result){
-                    return "<br>Inserido com sucesso!";
-                }
-                return "<br><br>Não inserido!";
-            }catch(Except $erro){
-                return $erro;
+            // Preparar a consulta SQL com parâmetros
+            $sql = "INSERT INTO cliente (nome, usuario, senha, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
+            $stmt = mysqli_prepare($conn, $sql);
+
+            if ($stmt) {
+                // Bind dos parâmetros
+                mysqli_stmt_bind_param($stmt, "sssss", $nome, $usuario, $senha, $telefone, $cpf);
+
+                // Executar a consulta
+                $result = mysqli_stmt_execute($stmt);
+
+                // Fechar a declaração
+                mysqli_stmt_close($stmt);
+            } else {
+                return "<br><br>Erro ao preparar a consulta: " . mysqli_error($conn);
             }
-        }//fim do método
 
-        
+            // Fechar a conexão
+            mysqli_close($conn);
 
-
-    }//fim da classe
+            if ($result) {
+                return "<br>Inserido com sucesso!";
+            } else {
+                return "<br><br>Não inserido!";
+            }
+        } catch (Exception $erro) {
+            return "<br><br>Erro: " . $erro->getMessage();
+        }
+    }
+}
 ?>

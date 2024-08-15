@@ -5,6 +5,7 @@
     require_once('Livros.php');
     require_once('Compra.php');
     require_once('Reserva.php');
+    require_once('../DAO/Conexao.php');
 
     use PHP\Modelo\DAO\Conexao;//Direcionar o arquivo
     use PHP\Modelo\DAO\Inserir;

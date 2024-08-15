@@ -1,19 +1,18 @@
 <?php
-    namespace PHP\Modelo\DAO;
+class Conexao {
+    private $host = 'localhost'; // Alterar conforme necessário
+    private $usuario = 'root';    // Alterar conforme necessário
+    private $senha = '';          // Alterar conforme necessário
+    private $banco = 'livrariati18n'; // Alterar conforme necessário
+    private $conn;
 
-    class Conexao{
-
-        function conectar(){
-            try{
-                $conn = mysqli_connect('localhost','root','','livrariati18n');
-                if($conn){
-                    echo "<br>Conectado com Sucesso!";
-                    return $conn;
-                }
-                echo "<br>Algo deu errado!";
-            }catch(Except $erro){
-                return $erro;
-            }
-        }//fim do conectar
-    }//fim da classe
+    public function conectar() {
+        $this->conn = new mysqli($this->host, $this->usuario, $this->senha, $this->banco);
+        if ($this->conn->connect_error) {
+            die("Conexão falhou: " . $this->conn->connect_error);
+        }
+        return $this->conn;
+    }
+}
 ?>
+
